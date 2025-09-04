@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Productos</title>
+  </head>
+  <body>
+    <h1>Productos disponibles</h1>
+    <ul>
+      {% for producto in productos %}
+        <li>{{ producto.nombre }} - ${{ producto.precio }} - {{ producto.stock }}</li>
+        {% if producto.stock >= 0 %}
+          <span style="color:red;font-weight: 800; font-family: monospace;">Sin stock</span>
+        {% endif %}
+      {% empty %}
+        <img style="max-width: 100px;" src="https://placehold.co/600x400?text=404" alt="404" />
+      {% endfor %}
+    </ul>
+  </body>
+</html>
